@@ -4,6 +4,6 @@ COPY pom.xml /usr/src/app
 RUN mvn -f /usr/src/app/pom.xml clean package
 
 FROM openjdk:8
-ADD --from=build /usr/src/app/target/spring-web-hello-1.jar spring-web-hello-1.jar
+ADD /usr/src/app/target/spring-web-hello-1.jar spring-web-hello-1.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "spring-web-hello-1.jar"]
